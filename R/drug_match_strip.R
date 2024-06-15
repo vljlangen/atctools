@@ -1,3 +1,30 @@
+#' Perform Drug Matching with Stripping Trailing Characters
+#'
+#' This function matches drug names in the input data frame to corresponding ATC
+#' codes using a reference data frame, with stripping trailing characters such as "mg", "g", etc.
+#'
+#' @param input_data A data frame containing a column of drug names to be matched.
+#' @param drug_column The name of the column in \code{input_data} containing drug names.
+#' @param reference_data A data frame or list with two elements:
+#'                       - \code{ATC_codes}: A character vector of ATC codes.
+#'                       - \code{drug_names}: A character vector of corresponding drug names.
+#'
+#' @return A modified data frame with additional columns:
+#'   \describe{
+#'     \item{drug_name_ATC}{ATC code matched to each drug name.}
+#'     \item{drug_name_hila}{Closest matching drug name from reference data.}
+#'     \item{drug_name_flag}{Flag indicating mismatch (1) or match (0) between drug name and ATC code prefix.}
+#'   }
+#' @export
+#'
+#' @import dplyr
+#' @importFrom stringdist stringdistmatrix
+#'
+#' @examples
+#' # Example usage:
+#' data(example_drug_data_with_mg)
+#' data(example_reference_data)
+#' output_data <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
 drug_match_strip <- function(input_data, drug_column, reference_data) {
 
   # Load dplyr
