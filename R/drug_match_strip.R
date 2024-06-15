@@ -1,5 +1,8 @@
 drug_match_strip <- function(input_data, drug_column, reference_data) {
 
+  # Load dplyr
+  library(dplyr)
+
   # Function to find the closest match using Levenshtein distance
   find_closest_match <- function(target, candidates) {
     distances <- stringdist::stringdistmatrix(target, candidates, method = "lv")
@@ -44,19 +47,19 @@ drug_match_strip <- function(input_data, drug_column, reference_data) {
     stripped_value <- input_data[[stripped_column]][i]
     closest_match <- find_closest_match(stripped_value, reference_data[[1]])
 
-    # Check if stripped_value is NA, if yes, assign NA to _ATC and _hila columns
+    # Check if stripped_value is NA, if yes, assign NA to _ATC and _matched columns
     if (is.na(stripped_value)) {
       input_data[[paste0(drug_column, "_ATC")]][i] <- NA
-      input_data[[paste0(drug_column, "_hila")]][i] <- NA
+      input_data[[paste0(drug_column, "_matched")]][i] <- NA
     } else {
       input_data[[paste0(drug_column, "_ATC")]][i] <-
         reference_data[[2]][which.max(reference_data[[1]] == closest_match)]
 
-      input_data[[paste0(drug_column, "_hila")]][i] <- closest_match
+      input_data[[paste0(drug_column, "_matched")]][i] <- closest_match
     }
 
     # Create flag variable
-    flag <- ifelse(substr(stripped_value, 1, 3) != substr(input_data[[paste0(drug_column, "_hila")]][i], 1, 3), 1, 0)
+    flag <- ifelse(substr(stripped_value, 1, 3) != substr(input_data[[paste0(drug_column, "_matched")]][i], 1, 3), 1, 0)
     input_data[[paste0(drug_column, "_flag")]][i] <- flag
   }
 
@@ -64,7 +67,7 @@ drug_match_strip <- function(input_data, drug_column, reference_data) {
   input_data <- input_data %>%
     relocate(
       !!stripped_column,
-      !!paste0(drug_column, "_hila"),
+      !!paste0(drug_column, "_matched"),
       !!paste0(drug_column, "_flag"),
       !!paste0(drug_column, "_ATC"),
       .after = !!sym(drug_column)
