@@ -52,6 +52,15 @@ output_data_stripped <- drug_match_strip(input_data, "drug_name", reference_data
 output_data_stripped
 ```
 
+# Explanation of `drug_name_flag` Column
+
+In the output data frame produced by the `drug_match` and `drug_match_strip` functions, the `drug_name_flag` column indicates whether there is a discrepancy between the stripped drug name used for matching and the closest matching drug name from the reference data. Specifically:
+
+1. **Purpose**: The drug_name_flag column flags instances where the first three characters of the stripped drug name do not match the corresponding ATC code's initial characters. This helps identify potential mismatches or inconsistencies in drug naming conventions.
+
+2. **Flag Values**:
+   - **1**: Indicates a mismatch where the first three characters of the stripped drug name differ from the corresponding ATC code.
+   - **0**: Indicates no mismatch; the first three characters of the stripped drug name match the corresponding ATC code.
 
 ## Installation
 
