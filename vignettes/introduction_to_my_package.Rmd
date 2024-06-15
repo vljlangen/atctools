@@ -1,6 +1,6 @@
 ---
 title: "Introduction to atctools Package"
-author: "Your Name"
+author: "Ville Langén"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
