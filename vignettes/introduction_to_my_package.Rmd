@@ -1,0 +1,106 @@
+---
+title: "Introduction to atctools Package"
+author: "Your Name"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction_to_my_package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(atctools)
+```
+
+
+# Introduction
+
+Welcome to the `atctools` package vignette! This vignette provides an overview of the package functionality, demonstrates the usage of key functions, and explains the example datasets included.
+
+## Overview
+
+The `atctools` package provides tools for ATC (Anatomical Therapeutic Chemical) code matching and data integrity checks for drug names. It includes functions for matching drug names to ATC codes with and without stripping trailing characters. 
+
+## Functions
+
+### `drug_match`
+
+The `drug_match` function matches drug names in a dataset to corresponding ATC codes using a reference dataset. It does not strip trailing characters from drug names.
+
+Usage:
+```r
+library(atctools)
+
+# Load example datasets
+data(example_drug_data)
+data(example_reference_data)
+
+# Perform drug matching
+output_data <- drug_match(example_drug_data, "drug_name", example_reference_data)
+```
+
+### `drug_match_strip`
+
+
+The `drug_match_strip` function matches drug names in a dataset to corresponding ATC codes, stripping trailing characters (e.g., "mg", "g") from drug names before matching.
+
+Usage:
+
+```r
+# Load example dataset with drug names including milligrams
+data(example_drug_data_with_mg)
+
+# Perform drug matching with trailing characters stripped
+output_data <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
+```
+
+## Example Datasets
+
+### `example_drug_data`
+
+
+This dataset contains example drug names without milligrams.
+
+```r
+data(example_drug_data)
+head(example_drug_data)
+```
+### `example_drug_data_with_mg`
+
+This dataset contains example drug names including milligrams.
+
+```r
+data(example_drug_data_with_mg)
+head(example_drug_data_with_mg)
+```
+
+### `example_reference_data``
+
+This dataset is a reference dataset containing example ATC codes and corresponding drug names for drug matching.
+
+```r
+data(example_reference_data)
+example_reference_data$ATC_codes
+example_reference_data$drug_names
+```
+
+
+## Flag Meaning
+
+The `drug_name_flag` column in the output dataset indicates whether there is a prefix mismatch between the drug name and its matched ATC code.
+
+- 1: Indicates a mismatch where the first three characters of the drug name do not match the first three characters of the ATC code.
+- 0: Indicates a match where the first three characters of the drug name match the first three characters of the ATC code.
+
+## Conclusion
+
+This vignette provides an overview of how to use the atctools package for drug name matching and understanding the flag column in the output. For more details on each function and additional functionality, refer to the package documentation and examples.
+
