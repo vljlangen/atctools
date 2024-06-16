@@ -11,6 +11,7 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  echo = TRUE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -51,6 +52,7 @@ This dataset contains example drug names without milligrams.
 ```r
 example_drug_data
 ```
+
 ### `example_drug_data_with_mg`
 
 This dataset contains example drug names including milligrams.
@@ -59,7 +61,7 @@ This dataset contains example drug names including milligrams.
 example_drug_data_with_mg
 ```
 
-### `example_reference_data``
+### `example_reference_data`
 
 This dataset is a reference dataset containing example drug names and corresponding ATC codes for drug matching. Please ensure that:
 
