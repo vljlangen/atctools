@@ -19,7 +19,7 @@ drug_match_strip(input_data, drug_column, reference_data)
 A modified data frame with additional columns:
 \describe{
 \item{drug_name_ATC}{ATC code matched to each drug name.}
-\item{drug_name_hila}{Closest matching drug name from reference data.}
+\item{drug_name_matched}{Closest matching drug name from reference data.}
 \item{drug_name_flag}{Flag indicating mismatch (1) or match (0) between drug name and ATC code prefix.}
 }
 }

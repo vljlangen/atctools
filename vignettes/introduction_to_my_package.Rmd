@@ -29,6 +29,50 @@ Welcome to the `atctools` package vignette! This vignette provides an overview o
 
 The `atctools` package provides tools for ATC (Anatomical Therapeutic Chemical) code matching and data integrity checks for drug names. It includes functions for matching drug names to ATC codes with and without stripping trailing characters. 
 
+The atctools package comprises:
+
+- Two main functions for drug name matching and ATC code assignment:
+   - **`drug_match`**: Matches drug names to ATC codes without stripping trailing characters.
+   - **`drug_match_strip`**: Matches drug names to ATC codes, stripping trailing characters such as "mg", "g", etc.
+- Three example datasets to illustrate package usage:
+   - **`example_drug_data`**: Drug names without milligrams.
+   - **`example_drug_data_with_mg`**: Drug names including milligrams.
+   - **`example_reference_data`**: Reference data with ATC codes and corresponding drug names.
+
+
+
+## Example Datasets
+
+### `example_drug_data`
+
+
+This dataset contains example drug names without milligrams.
+
+```r
+example_drug_data
+```
+### `example_drug_data_with_mg`
+
+This dataset contains example drug names including milligrams.
+
+```r
+example_drug_data_with_mg
+```
+
+### `example_reference_data``
+
+This dataset is a reference dataset containing example drug names and corresponding ATC codes for drug matching. Please ensure that:
+
+- The first column (in this example: `drug_name`) contains drug names.
+- The second column (in this example: `ATC_code`) contains ATC codes.
+
+```r
+example_reference_data
+```
+
+
+
+
 ## Functions
 
 ### `drug_match`
@@ -39,12 +83,11 @@ Usage:
 ```r
 library(atctools)
 
-# Load example datasets
-data(example_drug_data)
-data(example_reference_data)
-
 # Perform drug matching
-output_data <- drug_match(example_drug_data, "drug_name", example_reference_data)
+output_data1 <- drug_match(example_drug_data, "drug_name", example_reference_data)
+
+# Display output data
+output_data1
 ```
 
 ### `drug_match_strip`
@@ -55,43 +98,12 @@ The `drug_match_strip` function matches drug names in a dataset to corresponding
 Usage:
 
 ```r
-# Load example dataset with drug names including milligrams
-data(example_drug_data_with_mg)
-
 # Perform drug matching with trailing characters stripped
-output_data <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
+output_data2 <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
+
+# Display output data
+output_data2
 ```
-
-## Example Datasets
-
-### `example_drug_data`
-
-
-This dataset contains example drug names without milligrams.
-
-```r
-data(example_drug_data)
-head(example_drug_data)
-```
-### `example_drug_data_with_mg`
-
-This dataset contains example drug names including milligrams.
-
-```r
-data(example_drug_data_with_mg)
-head(example_drug_data_with_mg)
-```
-
-### `example_reference_data``
-
-This dataset is a reference dataset containing example ATC codes and corresponding drug names for drug matching.
-
-```r
-data(example_reference_data)
-example_reference_data$ATC_codes
-example_reference_data$drug_names
-```
-
 
 ## Flag Meaning
 
