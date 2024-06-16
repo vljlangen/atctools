@@ -49,7 +49,7 @@ The atctools package comprises:
 
 This dataset contains example drug names without milligrams.
 
-```r
+```{r}
 example_drug_data
 ```
 
@@ -57,7 +57,7 @@ example_drug_data
 
 This dataset contains example drug names including milligrams.
 
-```r
+```{r}
 example_drug_data_with_mg
 ```
 
@@ -68,7 +68,7 @@ This dataset is a reference dataset containing example drug names and correspond
 - The first column (in this example: `drug_name`) contains drug names.
 - The second column (in this example: `ATC_code`) contains ATC codes.
 
-```r
+```{r}
 example_reference_data
 ```
 
@@ -82,7 +82,7 @@ example_reference_data
 The `drug_match` function matches drug names in a dataset to corresponding ATC codes using a reference dataset. It does not strip trailing characters from drug names.
 
 Usage:
-```r
+```{r}
 library(atctools)
 
 # Perform drug matching
@@ -99,7 +99,7 @@ The `drug_match_strip` function matches drug names in a dataset to corresponding
 
 Usage:
 
-```r
+```{r}
 # Perform drug matching with trailing characters stripped
 output_data2 <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
 
