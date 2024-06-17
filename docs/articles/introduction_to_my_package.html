@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Ville
 Langén</h4>
             
-            <h4 data-toc-skip class="date">June 15, 2024</h4>
+            <h4 data-toc-skip class="date">June 17, 2024</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vljlangen/atctools/blob/HEAD/vignettes/introduction_to_my_package.Rmd" class="external-link"><code>vignettes/introduction_to_my_package.Rmd</code></a></small>
       <div class="d-none name"><code>introduction_to_my_package.Rmd</code></div>
@@ -95,74 +95,182 @@ usage of key functions, and explains the example datasets included.</p>
 Therapeutic Chemical) code matching and data integrity checks for drug
 names. It includes functions for matching drug names to ATC codes with
 and without stripping trailing characters.</p>
-</div>
-<div class="section level3">
-<h3 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
-</h3>
-<div class="section level4">
-<h4 id="drug_match">
-<code>drug_match</code><a class="anchor" aria-label="anchor" href="#drug_match"></a>
-</h4>
-<p>The <code>drug_match</code> function matches drug names in a dataset
-to corresponding ATC codes using a reference dataset. It does not strip
-trailing characters from drug names.</p>
-<p>Usage:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vljlangen/atctools" class="external-link">atctools</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Load example datasets</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_drug_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_reference_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Perform drug matching</span></span>
-<span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/drug_match.html">drug_match</a></span><span class="op">(</span><span class="va">example_drug_data</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="drug_match_strip">
-<code>drug_match_strip</code><a class="anchor" aria-label="anchor" href="#drug_match_strip"></a>
-</h4>
-<p>The <code>drug_match_strip</code> function matches drug names in a
-dataset to corresponding ATC codes, stripping trailing characters (e.g.,
-“mg”, “g”) from drug names before matching.</p>
-<p>Usage:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load example dataset with drug names including milligrams</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_drug_data_with_mg</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Perform drug matching with trailing characters stripped</span></span>
-<span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/drug_match_strip.html">drug_match_strip</a></span><span class="op">(</span><span class="va">example_drug_data_with_mg</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></code></pre></div>
-</div>
+<p>The atctools package comprises:</p>
+<ul>
+<li>Two main functions for drug name matching and ATC code assignment:
+<ul>
+<li>
+<strong><code>drug_match</code></strong>: Matches drug names to ATC
+codes without stripping trailing characters.</li>
+<li>
+<strong><code>drug_match_strip</code></strong>: Matches drug names
+to ATC codes, stripping trailing characters such as “mg”, “g”, etc.</li>
+</ul>
+</li>
+<li>Three example datasets to illustrate package usage:
+<ul>
+<li>
+<strong><code>example_drug_data</code></strong>: Drug names without
+milligrams.</li>
+<li>
+<strong><code>example_drug_data_with_mg</code></strong>: Drug names
+including milligrams.</li>
+<li>
+<strong><code>example_reference_data</code></strong>: Reference data
+with ATC codes and corresponding drug names.</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="example-datasets">Example Datasets<a class="anchor" aria-label="anchor" href="#example-datasets"></a>
 </h3>
 <div class="section level4">
-<h4 id="example_drug_data">
-<code>example_drug_data</code><a class="anchor" aria-label="anchor" href="#example_drug_data"></a>
+<h4 id="atctoolsexample_drug_data">atctools::example_drug_data<a class="anchor" aria-label="anchor" href="#atctoolsexample_drug_data"></a>
 </h4>
 <p>This dataset contains example drug names without milligrams.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_drug_data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">example_drug_data</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">example_drug_data</span></span>
+<span><span class="co">#&gt;       drug_name</span></span>
+<span><span class="co">#&gt; 1       Aspirin</span></span>
+<span><span class="co">#&gt; 2   Paracetamol</span></span>
+<span><span class="co">#&gt; 3     Ibuprofen</span></span>
+<span><span class="co">#&gt; 4    Cetirizine</span></span>
+<span><span class="co">#&gt; 5    Lisinopril</span></span>
+<span><span class="co">#&gt; 6     Metformin</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin</span></span>
+<span><span class="co">#&gt; 8    Omeprazole</span></span>
+<span><span class="co">#&gt; 9    Salbutamol</span></span>
+<span><span class="co">#&gt; 10  Amoxicillin</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="example_drug_data_with_mg">
-<code>example_drug_data_with_mg</code><a class="anchor" aria-label="anchor" href="#example_drug_data_with_mg"></a>
+<h4 id="atctoolsexample_drug_data_with_mg">atctools::example_drug_data_with_mg<a class="anchor" aria-label="anchor" href="#atctoolsexample_drug_data_with_mg"></a>
 </h4>
 <p>This dataset contains example drug names including milligrams.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_drug_data_with_mg</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">example_drug_data_with_mg</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">example_drug_data_with_mg</span></span>
+<span><span class="co">#&gt;            drug_name</span></span>
+<span><span class="co">#&gt; 1      Aspirin 100mg</span></span>
+<span><span class="co">#&gt; 2  Paracetamol 500mg</span></span>
+<span><span class="co">#&gt; 3    Ibuprofen 200mg</span></span>
+<span><span class="co">#&gt; 4    Cetirizine 10mg</span></span>
+<span><span class="co">#&gt; 5    Lisinopril 20mg</span></span>
+<span><span class="co">#&gt; 6   Metformin 1000mg</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin 40mg</span></span>
+<span><span class="co">#&gt; 8    Omeprazole 20mg</span></span>
+<span><span class="co">#&gt; 9     Salbutamol 2mg</span></span>
+<span><span class="co">#&gt; 10 Amoxicillin 500mg</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="example_reference_data">`example_reference_data``<a class="anchor" aria-label="anchor" href="#example_reference_data"></a>
+<h4 id="atctoolsexample_reference_data">atctools::example_reference_data<a class="anchor" aria-label="anchor" href="#atctoolsexample_reference_data"></a>
 </h4>
-<p>This dataset is a reference dataset containing example ATC codes and
-corresponding drug names for drug matching.</p>
+<p>This dataset is a reference dataset containing example drug names and
+corresponding ATC codes for drug matching. Please ensure that:</p>
+<ul>
+<li>The first column (in this example: <code>drug_name</code>) contains
+drug names.</li>
+<li>The second column (in this example: <code>ATC_code</code>) contains
+ATC codes.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">example_reference_data</span></span>
+<span><span class="co">#&gt;       drug_name ATC_code</span></span>
+<span><span class="co">#&gt; 1       Aspirin  B01AC06</span></span>
+<span><span class="co">#&gt; 2   Paracetamol  N02BE01</span></span>
+<span><span class="co">#&gt; 3     Ibuprofen  M01AE01</span></span>
+<span><span class="co">#&gt; 4    Cetirizine  R06AE07</span></span>
+<span><span class="co">#&gt; 5    Lisinopril  C09AA03</span></span>
+<span><span class="co">#&gt; 6     Metformin  A10BA02</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin  C10AA05</span></span>
+<span><span class="co">#&gt; 8    Omeprazole  A02BC01</span></span>
+<span><span class="co">#&gt; 9    Salbutamol  R03AC02</span></span>
+<span><span class="co">#&gt; 10  Amoxicillin  J01CA04</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h3>
+<div class="section level4">
+<h4 id="atctoolsdrug_match">atctools::drug_match()<a class="anchor" aria-label="anchor" href="#atctoolsdrug_match"></a>
+</h4>
+<p>The <code>drug_match</code> function matches drug names in a dataset
+to corresponding ATC codes using a reference dataset. It does not strip
+trailing characters from drug names.</p>
+<p>Usage:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vljlangen/atctools" class="external-link">atctools</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Perform drug matching</span></span>
+<span><span class="va">output_data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/drug_match.html">drug_match</a></span><span class="op">(</span><span class="va">example_drug_data</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span></span>
+<span><span class="co"># Display output data</span></span>
+<span><span class="va">output_data1</span></span>
+<span><span class="co">#&gt;       drug_name drug_name_original drug_name_matched drug_name_flag</span></span>
+<span><span class="co">#&gt; 1       Aspirin            aspirin           Aspirin              1</span></span>
+<span><span class="co">#&gt; 2   Paracetamol        paracetamol       Paracetamol              1</span></span>
+<span><span class="co">#&gt; 3     Ibuprofen          ibuprofen         Ibuprofen              1</span></span>
+<span><span class="co">#&gt; 4    Cetirizine         cetirizine        Cetirizine              1</span></span>
+<span><span class="co">#&gt; 5    Lisinopril         lisinopril        Lisinopril              1</span></span>
+<span><span class="co">#&gt; 6     Metformin          metformin         Metformin              1</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin       atorvastatin      Atorvastatin              1</span></span>
+<span><span class="co">#&gt; 8    Omeprazole         omeprazole        Omeprazole              1</span></span>
+<span><span class="co">#&gt; 9    Salbutamol         salbutamol        Salbutamol              1</span></span>
+<span><span class="co">#&gt; 10  Amoxicillin        amoxicillin       Amoxicillin              1</span></span>
+<span><span class="co">#&gt;    drug_name_ATC</span></span>
+<span><span class="co">#&gt; 1        B01AC06</span></span>
+<span><span class="co">#&gt; 2        N02BE01</span></span>
+<span><span class="co">#&gt; 3        M01AE01</span></span>
+<span><span class="co">#&gt; 4        R06AE07</span></span>
+<span><span class="co">#&gt; 5        C09AA03</span></span>
+<span><span class="co">#&gt; 6        A10BA02</span></span>
+<span><span class="co">#&gt; 7        C10AA05</span></span>
+<span><span class="co">#&gt; 8        A02BC01</span></span>
+<span><span class="co">#&gt; 9        R03AC02</span></span>
+<span><span class="co">#&gt; 10       J01CA04</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="atctoolsdrug_match_strip">atctools::drug_match_strip()<a class="anchor" aria-label="anchor" href="#atctoolsdrug_match_strip"></a>
+</h4>
+<p>The <code>drug_match_strip</code> function matches drug names in a
+dataset to corresponding ATC codes, stripping trailing characters (e.g.,
+“mg”, “g”) from drug names before matching.</p>
+<p>Usage:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_reference_data</span><span class="op">)</span></span>
-<span><span class="va">example_reference_data</span><span class="op">$</span><span class="va">ATC_codes</span></span>
-<span><span class="va">example_reference_data</span><span class="op">$</span><span class="va">drug_names</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Perform drug matching with trailing characters stripped</span></span>
+<span><span class="va">output_data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/drug_match_strip.html">drug_match_strip</a></span><span class="op">(</span><span class="va">example_drug_data_with_mg</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display output data</span></span>
+<span><span class="va">output_data2</span></span>
+<span><span class="co">#&gt;            drug_name drug_name_stripped drug_name_matched drug_name_flag</span></span>
+<span><span class="co">#&gt; 1      Aspirin 100mg            aspirin           Aspirin              1</span></span>
+<span><span class="co">#&gt; 2  Paracetamol 500mg        paracetamol       Paracetamol              1</span></span>
+<span><span class="co">#&gt; 3    Ibuprofen 200mg          ibuprofen         Ibuprofen              1</span></span>
+<span><span class="co">#&gt; 4    Cetirizine 10mg         cetirizine        Cetirizine              1</span></span>
+<span><span class="co">#&gt; 5    Lisinopril 20mg         lisinopril        Lisinopril              1</span></span>
+<span><span class="co">#&gt; 6   Metformin 1000mg          metformin         Metformin              1</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin 40mg       atorvastatin      Atorvastatin              1</span></span>
+<span><span class="co">#&gt; 8    Omeprazole 20mg         omeprazole        Omeprazole              1</span></span>
+<span><span class="co">#&gt; 9     Salbutamol 2mg         salbutamol        Salbutamol              1</span></span>
+<span><span class="co">#&gt; 10 Amoxicillin 500mg        amoxicillin       Amoxicillin              1</span></span>
+<span><span class="co">#&gt;    drug_name_ATC</span></span>
+<span><span class="co">#&gt; 1        B01AC06</span></span>
+<span><span class="co">#&gt; 2        N02BE01</span></span>
+<span><span class="co">#&gt; 3        M01AE01</span></span>
+<span><span class="co">#&gt; 4        R06AE07</span></span>
+<span><span class="co">#&gt; 5        C09AA03</span></span>
+<span><span class="co">#&gt; 6        A10BA02</span></span>
+<span><span class="co">#&gt; 7        C10AA05</span></span>
+<span><span class="co">#&gt; 8        A02BC01</span></span>
+<span><span class="co">#&gt; 9        R03AC02</span></span>
+<span><span class="co">#&gt; 10       J01CA04</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
