@@ -21,7 +21,7 @@
 #' # Example usage:
 #' data(example_atc_data)
 #' data(example_reference_data)
-#' output_data <- atc2drug(example_atc_data, "ATC_code", example_reference_data)
+#' atc2drug(example_atc_data, "ATC_code", example_reference_data)
 atc2drug <- function(input_data, atc_column, reference_data) {
 
   # Load dplyr

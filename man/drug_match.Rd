@@ -31,5 +31,5 @@ codes using a reference data frame, without stripping trailing characters.
 # Example usage:
 data(example_drug_data)
 data(example_reference_data)
-output_data <- drug_match(example_drug_data, "drug_name", example_reference_data)
+drug_match(example_drug_data, "drug_name", example_reference_data)
 }

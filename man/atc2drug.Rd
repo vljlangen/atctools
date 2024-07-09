@@ -29,5 +29,5 @@ names using a reference data frame.
 # Example usage:
 data(example_atc_data)
 data(example_reference_data)
-output_data <- atc2drug(example_atc_data, "ATC_code", example_reference_data)
+atc2drug(example_atc_data, "ATC_code", example_reference_data)
 }

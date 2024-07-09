@@ -97,7 +97,29 @@ codes using a reference data frame, without stripping trailing characters.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example usage:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_drug_data</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_reference_data</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu">drug_match</span><span class="op">(</span><span class="va">example_drug_data</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">drug_match</span><span class="op">(</span><span class="va">example_drug_data</span>, <span class="st">"drug_name"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       drug_name drug_name_original drug_name_matched drug_name_flag</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       Aspirin            aspirin           Aspirin              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Paracetamol        paracetamol       Paracetamol              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Ibuprofen          ibuprofen         Ibuprofen              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Cetirizine         cetirizine        Cetirizine              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    Lisinopril         lisinopril        Lisinopril              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Metformin          metformin         Metformin              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Atorvastatin       atorvastatin      Atorvastatin              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    Omeprazole         omeprazole        Omeprazole              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    Salbutamol         salbutamol        Salbutamol              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  Amoxicillin        amoxicillin       Amoxicillin              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    drug_name_ATC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        B01AC06</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        N02BE01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        M01AE01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        R06AE07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        C09AA03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6        A10BA02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        C10AA05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        A02BC01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        R03AC02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       J01CA04</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

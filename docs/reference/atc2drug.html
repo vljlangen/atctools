@@ -91,7 +91,7 @@ names using a reference data frame.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example usage:</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_atc_data</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">example_reference_data</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu">atc2drug</span><span class="op">(</span><span class="va">example_atc_data</span>, <span class="st">"ATC_code"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">atc2drug</span><span class="op">(</span><span class="va">example_atc_data</span>, <span class="st">"ATC_code"</span>, <span class="va">example_reference_data</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:stats’:</span>
@@ -100,6 +100,15 @@ names using a reference data frame.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ATC_code ATC_code_drug</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    B01AC06       Aspirin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    N02BE01   Paracetamol</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       &lt;NA&gt;          &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    M01AE01     Ibuprofen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    R06AE07    Cetirizine</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 ABCDE12345          &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 abcde12345          &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       &lt;NA&gt;          &lt;NA&gt;</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -24,7 +24,7 @@
 #' # Example usage:
 #' data(example_drug_data_with_mg)
 #' data(example_reference_data)
-#' output_data <- drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
+#' drug_match_strip(example_drug_data_with_mg, "drug_name", example_reference_data)
 drug_match_strip <- function(input_data, drug_column, reference_data) {
 
   # Load dplyr
