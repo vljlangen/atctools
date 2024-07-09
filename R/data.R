@@ -34,3 +34,17 @@
 #' @examples
 #' example_reference_data
 "example_reference_data"
+
+#' Example ATC Data for Testing
+#'
+#' This dataset provides an example of ATC codes for testing the \code{atc2drug} function.
+#' It includes valid ATC codes, non-valid ATC codes, and NA values.
+#'
+#' @format A data frame with 8 rows and 1 variable:
+#' \describe{
+#'   \item{ATC_code}{A character vector representing ATC codes, including valid codes, non-valid codes, and NA.}
+#' }
+#' @examples
+#' example_atc_data
+"example_atc_data"
+
