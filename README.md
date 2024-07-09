@@ -7,11 +7,16 @@
 
 - **ATC Matching**: Functions to match drug names to ATC codes using methods such as Levenshtein distance.
   
+- **ATC Code Matching**: Functions to match ATC codes to drug names directly.
+
 - **ATC Data Integrity Checks**: Tools to verify the consistency and correctness of ATC data.
 
-# Example usage of ATC matching function
 
-The `drug_match` function in `atctools` is useful for matching drug names to ATC codes.
+## Example Usage of ATC Matching Functions
+
+### 1. `drug_match`
+
+The `drug_match` function in `atctools` is useful for matching drug names to ATC codes without stripping trailing characters.
 
 ```r
 # Load the package
@@ -21,17 +26,20 @@ library(atctools)
 input_data <- data.frame(drug_name = c("Aspirin", "Paracetamol", "Ibuprofen"))
 
 # Reference data containing ATC codes and corresponding drug names
-reference_data <- list(ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), 
+reference_data <- list(
+  ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), 
+  drug_names = c("aspirin", "paracetamol", "ibuprofen")
+)
 
 # Perform drug matching
-drug_names = c("aspirin", "paracetamol", "ibuprofen"))
+output_data <- drug_match(input_data, "drug_name", reference_data)
 
 # View the processed output
-output_data <- drug_match(input_data, "drug_name", reference_data)
+output_data
 
 ```
 
-# Example usage of ATC matching function with trailing milligrams stripping
+### 2. `drug_match_strip`
 
 The `drug_match_strip` function in `atctools` is useful for matching drug names to ATC codes while stripping specific trailing characters, such as "milligrams". This can be particularly helpful when dealing with pharmaceutical data where drug names may include dosage information that needs to be normalized.
 
@@ -43,14 +51,84 @@ library(atctools)
 input_data <- data.frame(drug_name = c("Aspirin 100mg", "Paracetamol 500mg", "Ibuprofen 200mg"))
 
 # Reference data containing ATC codes and corresponding drug names
-reference_data <- list(ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), drug_names = c("aspirin", "paracetamol", "ibuprofen"))
+reference_data <- list(
+  ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), 
+  drug_names = c("aspirin", "paracetamol", "ibuprofen")
+)
 
 # Perform drug matching with trailing milligrams stripping
 output_data_stripped <- drug_match_strip(input_data, "drug_name", reference_data)
 
 # View the processed output
 output_data_stripped
+
 ```
+
+
+### 3. `atc2drug`
+
+The `atc2drug` function matches ATC codes to drug names directly without using Levenshtein distance.
+
+```
+# Load the package
+library(atctools)
+
+# Example data with ATC codes
+example_atc_data <- data.frame(atc_code = c("B01AC06", "N02BE01", NA, "M01AE01", "R06AE07", "ABCDE12345", "abcde12345", NA))
+
+# Reference data containing ATC codes and corresponding drug names
+reference_data <- list(
+  ATC_codes = c("B01AC06", "N02BE01", "M01AE01", "R06AE07"), 
+  drug_names = c("Aspirin", "Paracetamol", "Ibuprofen", "Cetirizine")
+)
+
+# Perform ATC code to drug name matching
+output_data_atc2drug <- atc2drug(example_atc_data, "ATC_code", reference_data)
+
+# View the processed output
+output_data_atc2drug
+
+```
+
+## Example Datasets
+
+
+### `example_drug_data`
+
+This dataset contains example drug names without milligrams.
+
+```
+example_drug_data
+```
+
+### `example_drug_data_with_mg`
+
+This dataset contains example drug names including milligrams.
+
+```
+example_drug_data_with_mg
+```
+
+### `example_reference_data`
+
+This dataset is a reference dataset containing example drug names and corresponding ATC codes for drug matching. Please ensure that:
+
+- The first column (in this example: `drug_name`) contains drug names.
+- The second column (in this example: `ATC_code`) contains ATC codes.
+
+```
+example_reference_data
+```
+
+### `example_atc_data`
+
+This dataset contains ATC codes for testing the `atc2drug` function, including both valid and non-valid ATC codes, as well as NA values.
+
+```
+example_atc_data
+```
+
+
 
 # Explanation of `drug_name_flag` Column
 
@@ -70,4 +148,12 @@ You can install the development version of atctools from [GitHub](https://github
 # install.packages("devtools")
 devtools::install_github("vljlangen/atctools")
 ```
+
+### Key Updates
+
+1. **Added `atc2drug` Function**: This function matches ATC codes to drug names directly and replaces the `Invalid_ATC_code1` and `Invalid_ATC_code2` examples with more appropriate non-valid ATC codes.
+
+2. **Added `example_atc_data` Dataset**: This dataset includes ATC codes for testing the `atc2drug` function, with valid and non-valid entries along with `NA` values.
+
+3. **Updated Examples**: Added example usage for the `atc2drug` function.
 

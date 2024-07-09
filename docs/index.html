@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">atctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,14 +72,18 @@
 </h2>
 <ul>
 <li><p><strong>ATC Matching</strong>: Functions to match drug names to ATC codes using methods such as Levenshtein distance.</p></li>
+<li><p><strong>ATC Code Matching</strong>: Functions to match ATC codes to drug names directly.</p></li>
 <li><p><strong>ATC Data Integrity Checks</strong>: Tools to verify the consistency and correctness of ATC data.</p></li>
 </ul>
 </div>
-</div>
-<div class="section level1">
-<h1 id="example-usage-of-atc-matching-function">Example usage of ATC matching function<a class="anchor" aria-label="anchor" href="#example-usage-of-atc-matching-function"></a>
-</h1>
-<p>The <code>drug_match</code> function in <code>atctools</code> is useful for matching drug names to ATC codes.</p>
+<div class="section level2">
+<h2 id="example-usage-of-atc-matching-functions">Example Usage of ATC Matching Functions<a class="anchor" aria-label="anchor" href="#example-usage-of-atc-matching-functions"></a>
+</h2>
+<div class="section level3">
+<h3 id="id_1-drug_match">1. <code>drug_match</code>
+<a class="anchor" aria-label="anchor" href="#id_1-drug_match"></a>
+</h3>
+<p>The <code>drug_match</code> function in <code>atctools</code> is useful for matching drug names to ATC codes without stripping trailing characters.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vljlangen/atctools" class="external-link">atctools</a></span><span class="op">)</span></span>
@@ -88,17 +92,21 @@
 <span><span class="va">input_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>drug_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Aspirin"</span>, <span class="st">"Paracetamol"</span>, <span class="st">"Ibuprofen"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Reference data containing ATC codes and corresponding drug names</span></span>
-<span><span class="va">reference_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ATC_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"N02BA01"</span>, <span class="st">"N02BE01"</span>, <span class="st">"N02AA02"</span><span class="op">)</span>, </span>
+<span><span class="va">reference_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  ATC_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"N02BA01"</span>, <span class="st">"N02BE01"</span>, <span class="st">"N02AA02"</span><span class="op">)</span>, </span>
+<span>  drug_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aspirin"</span>, <span class="st">"paracetamol"</span>, <span class="st">"ibuprofen"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Perform drug matching</span></span>
-<span>drug_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aspirin"</span>, <span class="st">"paracetamol"</span>, <span class="st">"ibuprofen"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/drug_match.html">drug_match</a></span><span class="op">(</span><span class="va">input_data</span>, <span class="st">"drug_name"</span>, <span class="va">reference_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># View the processed output</span></span>
-<span><span class="va">output_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/drug_match.html">drug_match</a></span><span class="op">(</span><span class="va">input_data</span>, <span class="st">"drug_name"</span>, <span class="va">reference_data</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">output_data</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="example-usage-of-atc-matching-function-with-trailing-milligrams-stripping">Example usage of ATC matching function with trailing milligrams stripping<a class="anchor" aria-label="anchor" href="#example-usage-of-atc-matching-function-with-trailing-milligrams-stripping"></a>
-</h1>
+<div class="section level3">
+<h3 id="id_2-drug_match_strip">2. <code>drug_match_strip</code>
+<a class="anchor" aria-label="anchor" href="#id_2-drug_match_strip"></a>
+</h3>
 <p>The <code>drug_match_strip</code> function in <code>atctools</code> is useful for matching drug names to ATC codes while stripping specific trailing characters, such as “milligrams”. This can be particularly helpful when dealing with pharmaceutical data where drug names may include dosage information that needs to be normalized.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the package</span></span>
@@ -108,13 +116,77 @@
 <span><span class="va">input_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>drug_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Aspirin 100mg"</span>, <span class="st">"Paracetamol 500mg"</span>, <span class="st">"Ibuprofen 200mg"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Reference data containing ATC codes and corresponding drug names</span></span>
-<span><span class="va">reference_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ATC_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"N02BA01"</span>, <span class="st">"N02BE01"</span>, <span class="st">"N02AA02"</span><span class="op">)</span>, drug_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aspirin"</span>, <span class="st">"paracetamol"</span>, <span class="st">"ibuprofen"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">reference_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  ATC_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"N02BA01"</span>, <span class="st">"N02BE01"</span>, <span class="st">"N02AA02"</span><span class="op">)</span>, </span>
+<span>  drug_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"aspirin"</span>, <span class="st">"paracetamol"</span>, <span class="st">"ibuprofen"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Perform drug matching with trailing milligrams stripping</span></span>
 <span><span class="va">output_data_stripped</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/drug_match_strip.html">drug_match_strip</a></span><span class="op">(</span><span class="va">input_data</span>, <span class="st">"drug_name"</span>, <span class="va">reference_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># View the processed output</span></span>
 <span><span class="va">output_data_stripped</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_3-atc2drug">3. <code>atc2drug</code>
+<a class="anchor" aria-label="anchor" href="#id_3-atc2drug"></a>
+</h3>
+<p>The <code>atc2drug</code> function matches ATC codes to drug names directly without using Levenshtein distance.</p>
+<pre><code><span><span class="co"># Load the package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vljlangen/atctools" class="external-link">atctools</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Example data with ATC codes</span></span>
+<span><span class="va">example_atc_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>atc_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B01AC06"</span>, <span class="st">"N02BE01"</span>, <span class="cn">NA</span>, <span class="st">"M01AE01"</span>, <span class="st">"R06AE07"</span>, <span class="st">"ABCDE12345"</span>, <span class="st">"abcde12345"</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Reference data containing ATC codes and corresponding drug names</span></span>
+<span><span class="va">reference_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  ATC_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B01AC06"</span>, <span class="st">"N02BE01"</span>, <span class="st">"M01AE01"</span>, <span class="st">"R06AE07"</span><span class="op">)</span>, </span>
+<span>  drug_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Aspirin"</span>, <span class="st">"Paracetamol"</span>, <span class="st">"Ibuprofen"</span>, <span class="st">"Cetirizine"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Perform ATC code to drug name matching</span></span>
+<span><span class="va">output_data_atc2drug</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/atc2drug.html">atc2drug</a></span><span class="op">(</span><span class="va">example_atc_data</span>, <span class="st">"ATC_code"</span>, <span class="va">reference_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View the processed output</span></span>
+<span><span class="va">output_data_atc2drug</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="example-datasets">Example Datasets<a class="anchor" aria-label="anchor" href="#example-datasets"></a>
+</h2>
+<div class="section level3">
+<h3 id="example_drug_data">
+<code>example_drug_data</code><a class="anchor" aria-label="anchor" href="#example_drug_data"></a>
+</h3>
+<p>This dataset contains example drug names without milligrams.</p>
+<pre><code><span><span class="va">example_drug_data</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="example_drug_data_with_mg">
+<code>example_drug_data_with_mg</code><a class="anchor" aria-label="anchor" href="#example_drug_data_with_mg"></a>
+</h3>
+<p>This dataset contains example drug names including milligrams.</p>
+<pre><code><span><span class="va">example_drug_data_with_mg</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="example_reference_data">
+<code>example_reference_data</code><a class="anchor" aria-label="anchor" href="#example_reference_data"></a>
+</h3>
+<p>This dataset is a reference dataset containing example drug names and corresponding ATC codes for drug matching. Please ensure that:</p>
+<ul>
+<li>The first column (in this example: <code>drug_name</code>) contains drug names.</li>
+<li>The second column (in this example: <code>ATC_code</code>) contains ATC codes.</li>
+</ul>
+<pre><code><span><span class="va">example_reference_data</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="example_atc_data">
+<code>example_atc_data</code><a class="anchor" aria-label="anchor" href="#example_atc_data"></a>
+</h3>
+<p>This dataset contains ATC codes for testing the <code>atc2drug</code> function, including both valid and non-valid ATC codes, as well as NA values.</p>
+<pre><code><span><span class="va">example_atc_data</span></span></code></pre>
+</div>
+</div>
 </div>
 <div class="section level1">
 <h1 id="explanation-of-drug_name_flag-column">Explanation of <code>drug_name_flag</code> Column<a class="anchor" aria-label="anchor" href="#explanation-of-drug_name_flag-column"></a>
@@ -136,9 +208,18 @@
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the development version of atctools from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"vljlangen/atctools"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="key-updates">Key Updates<a class="anchor" aria-label="anchor" href="#key-updates"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Added <code>atc2drug</code> Function</strong>: This function matches ATC codes to drug names directly and replaces the <code>Invalid_ATC_code1</code> and <code>Invalid_ATC_code2</code> examples with more appropriate non-valid ATC codes.</p></li>
+<li><p><strong>Added <code>example_atc_data</code> Dataset</strong>: This dataset includes ATC codes for testing the <code>atc2drug</code> function, with valid and non-valid entries along with <code>NA</code> values.</p></li>
+<li><p><strong>Updated Examples</strong>: Added example usage for the <code>atc2drug</code> function.</p></li>
+</ol>
+</div>
 </div>
 </div>
 

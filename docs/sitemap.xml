@@ -22,10 +22,16 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/atc2drug.html</loc>
+  </url>
+  <url>
     <loc>/reference/drug_match.html</loc>
   </url>
   <url>
     <loc>/reference/drug_match_strip.html</loc>
+  </url>
+  <url>
+    <loc>/reference/example_atc_data.html</loc>
   </url>
   <url>
     <loc>/reference/example_drug_data.html</loc>
