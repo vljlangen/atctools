@@ -22,17 +22,8 @@ The `drug_match` function in `atctools` is useful for matching drug names to ATC
 # Load the package
 library(atctools)
 
-# Example data with drug names
-input_data <- data.frame(drug_name = c("Aspirin", "Paracetamol", "Ibuprofen"))
-
-# Reference data containing ATC codes and corresponding drug names
-reference_data <- list(
-  ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), 
-  drug_names = c("aspirin", "paracetamol", "ibuprofen")
-)
-
 # Perform drug matching
-output_data <- drug_match(input_data, "drug_name", reference_data)
+output_data <- drug_match(example_drug_data, "drug_name", reference_data)
 
 # View the processed output
 output_data
@@ -47,17 +38,8 @@ The `drug_match_strip` function in `atctools` is useful for matching drug names 
 # Load the package
 library(atctools)
 
-# Example data with drug names including dosage information
-input_data <- data.frame(drug_name = c("Aspirin 100mg", "Paracetamol 500mg", "Ibuprofen 200mg"))
-
-# Reference data containing ATC codes and corresponding drug names
-reference_data <- list(
-  ATC_codes = c("N02BA01", "N02BE01", "N02AA02"), 
-  drug_names = c("aspirin", "paracetamol", "ibuprofen")
-)
-
 # Perform drug matching with trailing milligrams stripping
-output_data_stripped <- drug_match_strip(input_data, "drug_name", reference_data)
+output_data_stripped <- drug_match_strip(example_drug_data_with_mg, "drug_name", reference_data)
 
 # View the processed output
 output_data_stripped
@@ -72,15 +54,6 @@ The `atc2drug` function matches ATC codes to drug names directly without using L
 ```
 # Load the package
 library(atctools)
-
-# Example data with ATC codes
-example_atc_data <- data.frame(atc_code = c("B01AC06", "N02BE01", NA, "M01AE01", "R06AE07", "ABCDE12345", "abcde12345", NA))
-
-# Reference data containing ATC codes and corresponding drug names
-reference_data <- list(
-  ATC_codes = c("B01AC06", "N02BE01", "M01AE01", "R06AE07"), 
-  drug_names = c("Aspirin", "Paracetamol", "Ibuprofen", "Cetirizine")
-)
 
 # Perform ATC code to drug name matching
 output_data_atc2drug <- atc2drug(example_atc_data, "ATC_code", reference_data)
@@ -151,7 +124,7 @@ devtools::install_github("vljlangen/atctools")
 
 ### Key Updates
 
-1. **Added `atc2drug` Function**: This function matches ATC codes to drug names directly and replaces the `Invalid_ATC_code1` and `Invalid_ATC_code2` examples with more appropriate non-valid ATC codes.
+1. **Added `atc2drug` Function**: This function matches ATC codes to drug names directly.
 
 2. **Added `example_atc_data` Dataset**: This dataset includes ATC codes for testing the `atc2drug` function, with valid and non-valid entries along with `NA` values.
 
