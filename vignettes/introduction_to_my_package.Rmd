@@ -4,7 +4,7 @@ author: "Ville Langén"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{introduction_to_my_package}
+  %\VignetteIndexEntry{Overview of the atctools Package Functions and Datasets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -35,10 +35,12 @@ The atctools package comprises:
 - Two main functions for drug name matching and ATC code assignment:
    - **`drug_match`**: Matches drug names to ATC codes without stripping trailing characters.
    - **`drug_match_strip`**: Matches drug names to ATC codes, stripping trailing characters such as "mg", "g", etc.
+   - **`atc2drug`**: Matches ATC codes to drug names.
 - Three example datasets to illustrate package usage:
    - **`example_drug_data`**: Drug names without milligrams.
    - **`example_drug_data_with_mg`**: Drug names including milligrams.
    - **`example_reference_data`**: Reference data with ATC codes and corresponding drug names.
+   - **`example_atc_data`**: ATC codes for testing the atc2drug function, including valid, non-valid, and NA values.
 
 
 
@@ -72,6 +74,13 @@ This dataset is a reference dataset containing example drug names and correspond
 example_reference_data
 ```
 
+### atctools::example_atc_data
+
+This dataset provides example ATC codes for testing the `atc2drug` function. It includes valid ATC codes, non-valid codes, and `NA` values to demonstrate how the function handles different types of input.
+
+```{r}
+example_atc_data
+```
 
 
 
@@ -94,7 +103,6 @@ output_data1
 
 ### atctools::drug_match_strip()
 
-
 The `drug_match_strip` function matches drug names in a dataset to corresponding ATC codes, stripping trailing characters (e.g., "mg", "g") from drug names before matching.
 
 Usage:
@@ -107,7 +115,26 @@ output_data2 <- drug_match_strip(example_drug_data_with_mg, "drug_name", example
 output_data2
 ```
 
-## Flag Meaning
+
+### atctools::atc2drug()
+
+The `atc2drug` function matches ATC codes to drug names based on a reference dataset. It handles valid ATC codes, ignores invalid ATC codes, and returns `NA` for non-matching codes.
+
+
+
+Usage:
+
+```{r}
+# Perform ATC code to drug name matching
+output_data3 <- atc2drug(example_atc_data, "ATC_code", example_reference_data)
+
+# Display output data
+output_data3
+```
+
+
+
+## Flag Meaning in the Output Data of `example_drug_data` and `example_drug_data_with_mg`
 
 The `drug_name_flag` column in the output dataset indicates whether there is a prefix mismatch between the drug name and its matched ATC code.
 
