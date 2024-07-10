@@ -11,9 +11,7 @@ atc2drug(input_data, atc_column, reference_data)
 
 \item{atc_column}{The name of the column in \code{input_data} containing ATC codes.}
 
-\item{reference_data}{A data frame with two columns:
-- \code{drug_name}: A character vector of drug names.
-- \code{ATC_code}: A character vector of corresponding ATC codes.}
+\item{reference_data}{A data frame with drug names in the first column and corresponding ATC codes in the second column.}
 }
 \value{
 A modified data frame with an additional column:
@@ -24,6 +22,9 @@ A modified data frame with an additional column:
 \description{
 This function matches ATC codes in the input data frame to corresponding drug
 names using a reference data frame.
+\cr
+\cr
+The reference data frame must have drug names in the first column and ATC codes in the second column.
 }
 \examples{
 # Example usage:

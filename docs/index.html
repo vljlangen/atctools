@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">atctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,6 +142,13 @@
 <pre><code><span><span class="va">example_drug_data_with_mg</span></span></code></pre>
 </div>
 <div class="section level3">
+<h3 id="example_atc_data">
+<code>example_atc_data</code><a class="anchor" aria-label="anchor" href="#example_atc_data"></a>
+</h3>
+<p>This dataset contains ATC codes for testing the <code>atc2drug</code> function, including both valid and non-valid ATC codes, as well as NA values.</p>
+<pre><code><span><span class="va">example_atc_data</span></span></code></pre>
+</div>
+<div class="section level3">
 <h3 id="example_reference_data">
 <code>example_reference_data</code><a class="anchor" aria-label="anchor" href="#example_reference_data"></a>
 </h3>
@@ -151,13 +158,6 @@
 <li>The second column (in this example: <code>ATC_code</code>) contains ATC codes.</li>
 </ul>
 <pre><code><span><span class="va">example_reference_data</span></span></code></pre>
-</div>
-<div class="section level3">
-<h3 id="example_atc_data">
-<code>example_atc_data</code><a class="anchor" aria-label="anchor" href="#example_atc_data"></a>
-</h3>
-<p>This dataset contains ATC codes for testing the <code>atc2drug</code> function, including both valid and non-valid ATC codes, as well as NA values.</p>
-<pre><code><span><span class="va">example_atc_data</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -191,6 +191,8 @@
 <li><p><strong>Added <code>atc2drug</code> Function</strong>: This function matches ATC codes to drug names directly.</p></li>
 <li><p><strong>Added <code>example_atc_data</code> Dataset</strong>: This dataset includes ATC codes for testing the <code>atc2drug</code> function, with valid and non-valid entries along with <code>NA</code> values.</p></li>
 <li><p><strong>Updated Examples</strong>: Added example usage for the <code>atc2drug</code> function.</p></li>
+<li><p><strong>Improved <code>atc2drug</code> Function</strong>: The function now does not require the reference data to have specific variable names but expects drug name data in the first column and ATC codes in the second column.</p></li>
+<li><p><strong>Updated <code>example_reference_data</code></strong>: The example reference data now has drug names in lowercase letters.</p></li>
 </ol>
 </div>
 </div>

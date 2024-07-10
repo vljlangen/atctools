@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">atctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                         <h4 data-toc-skip class="author">Ville
 Langén</h4>
             
-            <h4 data-toc-skip class="date">July 09, 2024</h4>
+            <h4 data-toc-skip class="date">July 10, 2024</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/vljlangen/atctools/blob/HEAD/vignettes/introduction_to_my_package.Rmd" class="external-link"><code>vignettes/introduction_to_my_package.Rmd</code></a></small>
       <div class="d-none name"><code>introduction_to_my_package.Rmd</code></div>
@@ -182,16 +182,16 @@ ATC codes.</li>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">example_reference_data</span></span>
 <span><span class="co">#&gt;       drug_name ATC_code</span></span>
-<span><span class="co">#&gt; 1       Aspirin  B01AC06</span></span>
-<span><span class="co">#&gt; 2   Paracetamol  N02BE01</span></span>
-<span><span class="co">#&gt; 3     Ibuprofen  M01AE01</span></span>
-<span><span class="co">#&gt; 4    Cetirizine  R06AE07</span></span>
-<span><span class="co">#&gt; 5    Lisinopril  C09AA03</span></span>
-<span><span class="co">#&gt; 6     Metformin  A10BA02</span></span>
-<span><span class="co">#&gt; 7  Atorvastatin  C10AA05</span></span>
-<span><span class="co">#&gt; 8    Omeprazole  A02BC01</span></span>
-<span><span class="co">#&gt; 9    Salbutamol  R03AC02</span></span>
-<span><span class="co">#&gt; 10  Amoxicillin  J01CA04</span></span></code></pre></div>
+<span><span class="co">#&gt; 1       aspirin  B01AC06</span></span>
+<span><span class="co">#&gt; 2   paracetamol  N02BE01</span></span>
+<span><span class="co">#&gt; 3     ibuprofen  M01AE01</span></span>
+<span><span class="co">#&gt; 4    cetirizine  R06AE07</span></span>
+<span><span class="co">#&gt; 5    lisinopril  C09AA03</span></span>
+<span><span class="co">#&gt; 6     metformin  A10BA02</span></span>
+<span><span class="co">#&gt; 7  atorvastatin  C10AA05</span></span>
+<span><span class="co">#&gt; 8    omeprazole  A02BC01</span></span>
+<span><span class="co">#&gt; 9    salbutamol  R03AC02</span></span>
+<span><span class="co">#&gt; 10  amoxicillin  J01CA04</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="atctoolsexample_atc_data">atctools::example_atc_data<a class="anchor" aria-label="anchor" href="#atctoolsexample_atc_data"></a>
@@ -240,16 +240,16 @@ trailing characters from drug names.</p>
 <span><span class="co"># Display output data</span></span>
 <span><span class="va">output_data1</span></span>
 <span><span class="co">#&gt;       drug_name drug_name_original drug_name_matched drug_name_flag</span></span>
-<span><span class="co">#&gt; 1       Aspirin            aspirin           Aspirin              1</span></span>
-<span><span class="co">#&gt; 2   Paracetamol        paracetamol       Paracetamol              1</span></span>
-<span><span class="co">#&gt; 3     Ibuprofen          ibuprofen         Ibuprofen              1</span></span>
-<span><span class="co">#&gt; 4    Cetirizine         cetirizine        Cetirizine              1</span></span>
-<span><span class="co">#&gt; 5    Lisinopril         lisinopril        Lisinopril              1</span></span>
-<span><span class="co">#&gt; 6     Metformin          metformin         Metformin              1</span></span>
-<span><span class="co">#&gt; 7  Atorvastatin       atorvastatin      Atorvastatin              1</span></span>
-<span><span class="co">#&gt; 8    Omeprazole         omeprazole        Omeprazole              1</span></span>
-<span><span class="co">#&gt; 9    Salbutamol         salbutamol        Salbutamol              1</span></span>
-<span><span class="co">#&gt; 10  Amoxicillin        amoxicillin       Amoxicillin              1</span></span>
+<span><span class="co">#&gt; 1       Aspirin            aspirin           aspirin              0</span></span>
+<span><span class="co">#&gt; 2   Paracetamol        paracetamol       paracetamol              0</span></span>
+<span><span class="co">#&gt; 3     Ibuprofen          ibuprofen         ibuprofen              0</span></span>
+<span><span class="co">#&gt; 4    Cetirizine         cetirizine        cetirizine              0</span></span>
+<span><span class="co">#&gt; 5    Lisinopril         lisinopril        lisinopril              0</span></span>
+<span><span class="co">#&gt; 6     Metformin          metformin         metformin              0</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin       atorvastatin      atorvastatin              0</span></span>
+<span><span class="co">#&gt; 8    Omeprazole         omeprazole        omeprazole              0</span></span>
+<span><span class="co">#&gt; 9    Salbutamol         salbutamol        salbutamol              0</span></span>
+<span><span class="co">#&gt; 10  Amoxicillin        amoxicillin       amoxicillin              0</span></span>
 <span><span class="co">#&gt;    drug_name_ATC</span></span>
 <span><span class="co">#&gt; 1        B01AC06</span></span>
 <span><span class="co">#&gt; 2        N02BE01</span></span>
@@ -276,16 +276,16 @@ dataset to corresponding ATC codes, stripping trailing characters (e.g.,
 <span><span class="co"># Display output data</span></span>
 <span><span class="va">output_data2</span></span>
 <span><span class="co">#&gt;            drug_name drug_name_stripped drug_name_matched drug_name_flag</span></span>
-<span><span class="co">#&gt; 1      Aspirin 100mg            aspirin           Aspirin              1</span></span>
-<span><span class="co">#&gt; 2  Paracetamol 500mg        paracetamol       Paracetamol              1</span></span>
-<span><span class="co">#&gt; 3    Ibuprofen 200mg          ibuprofen         Ibuprofen              1</span></span>
-<span><span class="co">#&gt; 4    Cetirizine 10mg         cetirizine        Cetirizine              1</span></span>
-<span><span class="co">#&gt; 5    Lisinopril 20mg         lisinopril        Lisinopril              1</span></span>
-<span><span class="co">#&gt; 6   Metformin 1000mg          metformin         Metformin              1</span></span>
-<span><span class="co">#&gt; 7  Atorvastatin 40mg       atorvastatin      Atorvastatin              1</span></span>
-<span><span class="co">#&gt; 8    Omeprazole 20mg         omeprazole        Omeprazole              1</span></span>
-<span><span class="co">#&gt; 9     Salbutamol 2mg         salbutamol        Salbutamol              1</span></span>
-<span><span class="co">#&gt; 10 Amoxicillin 500mg        amoxicillin       Amoxicillin              1</span></span>
+<span><span class="co">#&gt; 1      Aspirin 100mg            aspirin           aspirin              0</span></span>
+<span><span class="co">#&gt; 2  Paracetamol 500mg        paracetamol       paracetamol              0</span></span>
+<span><span class="co">#&gt; 3    Ibuprofen 200mg          ibuprofen         ibuprofen              0</span></span>
+<span><span class="co">#&gt; 4    Cetirizine 10mg         cetirizine        cetirizine              0</span></span>
+<span><span class="co">#&gt; 5    Lisinopril 20mg         lisinopril        lisinopril              0</span></span>
+<span><span class="co">#&gt; 6   Metformin 1000mg          metformin         metformin              0</span></span>
+<span><span class="co">#&gt; 7  Atorvastatin 40mg       atorvastatin      atorvastatin              0</span></span>
+<span><span class="co">#&gt; 8    Omeprazole 20mg         omeprazole        omeprazole              0</span></span>
+<span><span class="co">#&gt; 9     Salbutamol 2mg         salbutamol        salbutamol              0</span></span>
+<span><span class="co">#&gt; 10 Amoxicillin 500mg        amoxicillin       amoxicillin              0</span></span>
 <span><span class="co">#&gt;    drug_name_ATC</span></span>
 <span><span class="co">#&gt; 1        B01AC06</span></span>
 <span><span class="co">#&gt; 2        N02BE01</span></span>
@@ -313,11 +313,11 @@ codes.</p>
 <span><span class="co"># Display output data</span></span>
 <span><span class="va">output_data3</span></span>
 <span><span class="co">#&gt;     ATC_code ATC_code_drug</span></span>
-<span><span class="co">#&gt; 1    B01AC06       Aspirin</span></span>
-<span><span class="co">#&gt; 2    N02BE01   Paracetamol</span></span>
+<span><span class="co">#&gt; 1    B01AC06       aspirin</span></span>
+<span><span class="co">#&gt; 2    N02BE01   paracetamol</span></span>
 <span><span class="co">#&gt; 3       &lt;NA&gt;          &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4    M01AE01     Ibuprofen</span></span>
-<span><span class="co">#&gt; 5    R06AE07    Cetirizine</span></span>
+<span><span class="co">#&gt; 4    M01AE01     ibuprofen</span></span>
+<span><span class="co">#&gt; 5    R06AE07    cetirizine</span></span>
 <span><span class="co">#&gt; 6 ABCDE12345          &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; 7 abcde12345          &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; 8       &lt;NA&gt;          &lt;NA&gt;</span></span></code></pre></div>

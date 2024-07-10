@@ -2,12 +2,13 @@
 #'
 #' This function matches ATC codes in the input data frame to corresponding drug
 #' names using a reference data frame.
+#' \cr
+#' \cr
+#' The reference data frame must have drug names in the first column and ATC codes in the second column.
 #'
 #' @param input_data A data frame containing a column of ATC codes to be matched.
 #' @param atc_column The name of the column in \code{input_data} containing ATC codes.
-#' @param reference_data A data frame with two columns:
-#'                       - \code{drug_name}: A character vector of drug names.
-#'                       - \code{ATC_code}: A character vector of corresponding ATC codes.
+#' @param reference_data A data frame with drug names in the first column and corresponding ATC codes in the second column.
 #'
 #' @return A modified data frame with an additional column:
 #'   \describe{
@@ -36,9 +37,9 @@ atc2drug <- function(input_data, atc_column, reference_data) {
 
     # Skip processing if original_value is NA
     if (!is.na(original_value)) {
-      match_index <- match(original_value, reference_data$ATC_code)
+      match_index <- match(original_value, reference_data[[2]])
       if (!is.na(match_index)) {
-        input_data[[paste0(atc_column, "_drug")]][i] <- reference_data$drug_name[match_index]
+        input_data[[paste0(atc_column, "_drug")]][i] <- reference_data[[1]][match_index]
       }
     }
   }

@@ -1,6 +1,6 @@
 Package: atctools
 Title: Tools for ATC Matching and ATC Data Integrity Checks
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: 
     person("Ville", "Langén", , "ville.langen@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2382-7962"))

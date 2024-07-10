@@ -11,9 +11,7 @@ drug_match_strip(input_data, drug_column, reference_data)
 
 \item{drug_column}{The name of the column in \code{input_data} containing drug names.}
 
-\item{reference_data}{A data frame or list with two elements:
-- \code{ATC_codes}: A character vector of ATC codes.
-- \code{drug_names}: A character vector of corresponding drug names.}
+\item{reference_data}{A data frame with drug names in the first column and corresponding ATC codes in the second column.}
 }
 \value{
 A modified data frame with additional columns:
@@ -26,6 +24,9 @@ A modified data frame with additional columns:
 \description{
 This function matches drug names in the input data frame to corresponding ATC
 codes using a reference data frame, with stripping trailing characters such as "mg", "g", etc.
+\cr
+\cr
+The reference data frame must have drug names in the first column and ATC codes in the second column.
 }
 \examples{
 # Example usage:

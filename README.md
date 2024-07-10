@@ -82,6 +82,14 @@ This dataset contains example drug names including milligrams.
 example_drug_data_with_mg
 ```
 
+### `example_atc_data`
+
+This dataset contains ATC codes for testing the `atc2drug` function, including both valid and non-valid ATC codes, as well as NA values.
+
+```
+example_atc_data
+```
+
 ### `example_reference_data`
 
 This dataset is a reference dataset containing example drug names and corresponding ATC codes for drug matching. Please ensure that:
@@ -92,16 +100,6 @@ This dataset is a reference dataset containing example drug names and correspond
 ```
 example_reference_data
 ```
-
-### `example_atc_data`
-
-This dataset contains ATC codes for testing the `atc2drug` function, including both valid and non-valid ATC codes, as well as NA values.
-
-```
-example_atc_data
-```
-
-
 
 # Explanation of `drug_name_flag` Column
 
@@ -130,3 +128,6 @@ devtools::install_github("vljlangen/atctools")
 
 3. **Updated Examples**: Added example usage for the `atc2drug` function.
 
+4. **Improved `atc2drug` Function**: The function now does not require the reference data to have specific variable names but expects drug name data in the first column and ATC codes in the second column.
+
+5. **Updated `example_reference_data`**: The example reference data now has drug names in lowercase letters.

@@ -2,12 +2,13 @@
 #'
 #' This function matches drug names in the input data frame to corresponding ATC
 #' codes using a reference data frame, without stripping trailing characters.
+#' \cr
+#' \cr
+#' The reference data frame must have drug names in the first column and ATC codes in the second column.
 #'
 #' @param input_data A data frame containing a column of drug names to be matched.
 #' @param drug_column The name of the column in \code{input_data} containing drug names.
-#' @param reference_data A list with two elements:
-#'                       - \code{ATC_codes}: A character vector of ATC codes.
-#'                       - \code{drug_names}: A character vector of corresponding drug names.
+#' @param reference_data A data frame with drug names in the first column and corresponding ATC codes in the second column.
 #'
 #' @return A modified data frame with additional columns:
 #'   \describe{
