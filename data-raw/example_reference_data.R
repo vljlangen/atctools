@@ -3,16 +3,16 @@
 # Example reference data with ATC codes for drugs as a data.frame
 example_reference_data <- data.frame(
   drug_name = c(
-    "Aspirin",
-    "Paracetamol",
-    "Ibuprofen",
-    "Cetirizine",
-    "Lisinopril",
-    "Metformin",
-    "Atorvastatin",
-    "Omeprazole",
-    "Salbutamol",
-    "Amoxicillin"
+    "aspirin",
+    "paracetamol",
+    "ibuprofen",
+    "cetirizine",
+    "lisinopril",
+    "metformin",
+    "atorvastatin",
+    "omeprazole",
+    "salbutamol",
+    "amoxicillin"
   ),
   ATC_code = c(
     "B01AC06",  # Aspirin
