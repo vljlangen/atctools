@@ -1,48 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/introduction_to_my_package.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/atc2drug.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_match.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_match_strip.html</loc>
-  </url>
-  <url>
-    <loc>/reference/example_atc_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/example_drug_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/example_drug_data_with_mg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/example_reference_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/introduction_to_my_package.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/atc2drug.html</loc></url>
+<url><loc>/reference/drug_match.html</loc></url>
+<url><loc>/reference/drug_match_strip.html</loc></url>
+<url><loc>/reference/example_atc_data.html</loc></url>
+<url><loc>/reference/example_drug_data.html</loc></url>
+<url><loc>/reference/example_drug_data_with_mg.html</loc></url>
+<url><loc>/reference/example_reference_data.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/validate_atc.html</loc></url>
+<url><loc>/reference/validate_atc_with_reference.html</loc></url>
 </urlset>
+
