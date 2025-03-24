@@ -48,8 +48,6 @@ The `atctools` package comprises:
    - **`example_atc_data_for_validation`**: ATC codes with a mix of valid, invalid, and unknown codes for testing validation functions.
 
 
-
-
 ## Example Datasets
 
 ### atctools::example_drug_data
