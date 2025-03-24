@@ -29,19 +29,24 @@ Welcome to the `atctools` package vignette! This vignette provides an overview o
 
 ## Overview
 
-The `atctools` package provides tools for ATC (Anatomical Therapeutic Chemical) code matching and data integrity checks for drug names. It includes functions for matching drug names to ATC codes with and without stripping trailing characters. 
+The `atctools` package provides tools for ATC (Anatomical Therapeutic Chemical) code matching and data integrity checks for drug names. It includes functions for matching drug names to ATC codes with and without stripping trailing characters, as well as validating ATC codes.
 
-The atctools package comprises:
+The `atctools` package comprises:
 
-- Two main functions for drug name matching and ATC code assignment:
+- **Five main functions** for drug name matching, ATC code assignment, and validation:
    - **`drug_match`**: Matches drug names to ATC codes without stripping trailing characters.
    - **`drug_match_strip`**: Matches drug names to ATC codes, stripping trailing characters such as "mg", "g", etc.
    - **`atc2drug`**: Matches ATC codes to drug names.
-- Three example datasets to illustrate package usage:
+   - **`validate_atc`**: Validates whether the ATC codes follow the correct format (length and structure).
+   - **`validate_atc_by_reference`**: Validates ATC codes by checking them against a reference list of known codes.
+   
+- **Five example datasets** to illustrate package usage:
    - **`example_drug_data`**: Drug names without milligrams.
    - **`example_drug_data_with_mg`**: Drug names including milligrams.
    - **`example_reference_data`**: Reference data with ATC codes and corresponding drug names.
-   - **`example_atc_data`**: ATC codes for testing the atc2drug function, including valid, non-valid, and NA values.
+   - **`example_atc_data`**: ATC codes for testing the `atc2drug` function, including valid, non-valid, and NA values.
+   - **`example_atc_data_for_validation`**: ATC codes with a mix of valid, invalid, and unknown codes for testing validation functions.
+
 
 
 
@@ -125,9 +130,10 @@ validate_by_ref_output
 Here’s how you might run both validation functions in sequence and examine the combined results:
 
 ```{r}
+valid_codes <- example_reference_data$ATC_code
 output_combined <- example_atc_data_for_validation %>%
   validate_atc("atc_1") %>%
-  validate_atc_with_reference("atc_2", example_reference_data)
+  validate_atc_with_reference("atc_2", valid_codes)
 
 output_combined
 ```
