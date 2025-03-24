@@ -117,7 +117,8 @@ The `validate_atc_with_reference()` function checks if each ATC code in a specif
 
 ```{r}
 # Validate ATC codes against a reference list
-validate_by_ref_output <- validate_atc_with_reference(example_atc_data_for_validation, "atc_2", example_reference_data)
+valid_codes <- example_reference_data$ATC_code
+validate_by_ref_output <- validate_atc_with_reference(example_atc_data_for_validation, "atc_2", valid_codes)
 
 # View result
 validate_by_ref_output
