@@ -82,9 +82,60 @@ This dataset provides example ATC codes for testing the `atc2drug` function. It 
 example_atc_data
 ```
 
+### atctools::example_atc_data_for_validation
+
+This dataset contains a mix of valid, invalid, and unknown ATC codes across two columns (`atc_1`, `atc_2`) for testing the validation functions.
+
+```{r}
+example_atc_data_for_validation
+```
 
 
 ## Functions
+
+### atctools::validate_atc()
+
+The `validate_atc()` function checks whether each ATC code in a specified column is format-valid based on the official ATC code structure. It adds a new column (e.g., `atc_1_invalid`) next to the specified column indicating whether the code is invalid (`1`) or valid (`0`).
+
+ATC codes must be either 5 or 7 characters long and follow the expected letter-number-letter-letter-number-number structure (for 7-character codes).
+
+```{r}
+# Validate ATC codes by format
+validate_output <- validate_atc(example_atc_data_for_validation, "atc_1")
+
+# View result
+validate_output
+```
+
+### atctools::validate_atc_by_reference()
+
+The `validate_atc_by_reference()` function checks if each ATC code in a specified column exists in a reference list of valid codes (e.g., from `example_reference_data`). This is useful for ensuring codes are not just structurally valid but also known and accepted.
+
+```{r}
+# Validate ATC codes against a reference list
+validate_by_ref_output <- validate_atc_by_reference(example_atc_data_for_validation, "atc_2", example_reference_data)
+
+# View result
+validate_by_ref_output
+```
+
+#### Example of Combined Output
+
+Here’s how you might run both validation functions in sequence and examine the combined results:
+
+```{r}
+output_combined <- example_atc_data_for_validation %>%
+  validate_atc("atc_1") %>%
+  validate_atc_by_reference("atc_2", example_reference_data)
+
+output_combined
+```
+
+The flags:
+
+- `atc_1_invalid`: Format-based invalidity
+- `atc_2_invalid`: Not found in reference list
+
 
 ### atctools::drug_match()
 
@@ -120,8 +171,6 @@ output_data2
 
 The `atc2drug` function matches ATC codes to drug names based on a reference dataset. It handles valid ATC codes, ignores invalid ATC codes, and returns `NA` for non-matching codes.
 
-
-
 Usage:
 
 ```{r}
@@ -140,6 +189,7 @@ The `drug_name_flag` column in the output dataset indicates whether there is a p
 
 - 1: Indicates a mismatch where the first three characters of the drug name do not match the first three characters of the ATC code.
 - 0: Indicates a match where the first three characters of the drug name match the first three characters of the ATC code.
+
 
 ## Conclusion
 

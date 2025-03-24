@@ -3,5 +3,7 @@
 export(atc2drug)
 export(drug_match)
 export(drug_match_strip)
+export(validate_atc)
+export(validate_atc_with_reference)
 import(dplyr)
 importFrom(stringdist,stringdistmatrix)
