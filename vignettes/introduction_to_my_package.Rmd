@@ -107,13 +107,13 @@ validate_output <- validate_atc(example_atc_data_for_validation, "atc_1")
 validate_output
 ```
 
-### atctools::validate_atc_by_reference()
+### atctools::validate_atc_with_reference()
 
-The `validate_atc_by_reference()` function checks if each ATC code in a specified column exists in a reference list of valid codes (e.g., from `example_reference_data`). This is useful for ensuring codes are not just structurally valid but also known and accepted.
+The `validate_atc_with_reference()` function checks if each ATC code in a specified column exists in a reference list of valid codes (e.g., from `example_reference_data`). This is useful for ensuring codes are not just structurally valid but also known and accepted.
 
 ```{r}
 # Validate ATC codes against a reference list
-validate_by_ref_output <- validate_atc_by_reference(example_atc_data_for_validation, "atc_2", example_reference_data)
+validate_by_ref_output <- validate_atc_with_reference(example_atc_data_for_validation, "atc_2", example_reference_data)
 
 # View result
 validate_by_ref_output
@@ -126,7 +126,7 @@ Here’s how you might run both validation functions in sequence and examine the
 ```{r}
 output_combined <- example_atc_data_for_validation %>%
   validate_atc("atc_1") %>%
-  validate_atc_by_reference("atc_2", example_reference_data)
+  validate_atc_with_reference("atc_2", example_reference_data)
 
 output_combined
 ```
